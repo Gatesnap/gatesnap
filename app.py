@@ -4,7 +4,7 @@ import cv2
 import mediapipe as mp
 import os
 
-st.title("6-Second Pose Analysis")
+st.title("GateSnap AI – Pose Analysis")
 
 uploaded_file = st.file_uploader("Upload your 6-second iPhone video", type=["mp4", "mov", "avi"])
 
@@ -14,7 +14,7 @@ if uploaded_file is not None:
 
     st.video(tfile.name)
 
-    st.write("Processing video...")
+    st.write("Analyzing...")
 
     mp_pose = mp.solutions.pose
     pose = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5)
@@ -42,4 +42,4 @@ if uploaded_file is not None:
     cap.release()
     pose.close()
     os.remove(tfile.name)
-    st.success("Video processing complete.")
+    st.success("Analysis complete.")
