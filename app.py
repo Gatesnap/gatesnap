@@ -23,35 +23,8 @@ from PIL import Image
 
 st.set_page_config(page_title="GateSnap AI", layout="centered")
 
-# Load and display logo
-with st.expander("🎯 Plans (Free forever, upgrades optional)", expanded=True):
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown("**Free**\n\n• 1 analysis/day\n\n£0 / forever")
-    with col2:
-        st.markdown("**Pro**\n\n• 3/day\n\n£9.99 / year")
-        st.link_button("Upgrade to Pro", "https://buy.stripe.com/eVqeVdamUgkQ7Isgd19EI00")
-    with col3:
-        st.markdown("**Team**\n\n• 15/day\n\n£49.99 / year")
-        st.link_button("Team Upgrade", "https://buy.stripe.com/cNi4gzfHe1pW5AkaSH9EI01")
-    st.markdown("**Coach License** • 50/day • £99.99 / year")
-    st.link_button("Coach Upgrade", "https://buy.stripe.com/4gM14n52A3y47Is8Kz9EI02")
-
 
 st.title("Body Position Analysis for BMX Riders")
-
-st.markdown("### 📤 Upload Your Gate Start Video")
-st.markdown("""
-✅ Set your phone to **1080p at 30fps**  
-✅ Crop your video to **2–6 seconds**  
-✅ Film from the **side**, showing your full body  
-✅ For best results, use a **tripod or stable surface**
-
-⚠️ Videos over 6 seconds or under 2 seconds will be rejected  
-⚠️ Avoid 4K or 60fps – they may fail to upload
-""")
-
-uploaded_file = st.file_uploader("🎬 Upload your video", type=["mp4", "mov"])
 
 st.markdown("### Create a Free Account")
 with st.form("signup_form"):
@@ -66,6 +39,31 @@ with st.form("signup_form"):
         else:
             st.success("Account created (placeholder). Login will be enabled after we connect Firebase.")
 
+with st.expander("🎯 Plans (Free forever, upgrades optional)", expanded=True):
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("**Free**\n\n• 1 analysis/day\n\n£0 / forever")
+    with col2:
+        st.markdown("**Pro**\n\n• 3/day\n\n£9.99 / year")
+        st.link_button("Upgrade to Pro", "https://buy.stripe.com/eVqeVdamUgkQ7Isgd19EI00")
+    with col3:
+        st.markdown("**Team**\n\n• 15/day\n\n£49.99 / year")
+        st.link_button("Team Upgrade", "https://buy.stripe.com/cNi4gzfHe1pW5AkaSH9EI01")
+    st.markdown("**Coach License** • 50/day • £99.99 / year")
+    st.link_button("Coach Upgrade", "https://buy.stripe.com/4gM14n52A3y47Is8Kz9EI02")
+
+st.markdown("### 📤 Upload Your Gate Start Video")
+st.markdown("""
+✅ Set your phone to **1080p at 30fps**  
+✅ Crop your video to **2–6 seconds**  
+✅ Film from the **side**, showing your full body  
+✅ For best results, use a **tripod or stable surface**
+
+⚠️ Videos over 6 seconds or under 2 seconds will be rejected  
+⚠️ Avoid 4K or 60fps – they may fail to upload
+""")
+
+uploaded_file = st.file_uploader("🎬 Upload your video", type=["mp4", "mov"])
 
 if uploaded_file:
     st.success("✅ Video uploaded successfully!")
