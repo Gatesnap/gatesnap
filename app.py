@@ -50,6 +50,20 @@ st.markdown("""
 
 uploaded_file = st.file_uploader("🎬 Upload your video", type=["mp4", "mov"])
 
+st.markdown("### Create a Free Account")
+with st.form("signup_form"):
+    name = st.text_input("Full name")
+    email = st.text_input("Email")
+    password = st.text_input("Password", type="password")
+    agree = st.checkbox("I agree to the Terms & Privacy")
+    submitted = st.form_submit_button("Create my free account")
+    if submitted:
+        if not (name and email and password and agree):
+            st.error("Please complete all fields and agree to continue.")
+        else:
+            st.success("Account created (placeholder). Login will be enabled after we connect Firebase.")
+
+
 if uploaded_file:
     st.success("✅ Video uploaded successfully!")
     st.markdown("### 🧠 GateSnap AI Review: Frame: Pre-Load Position")
