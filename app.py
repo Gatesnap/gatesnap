@@ -42,12 +42,12 @@ with st.form("signup_form"):
 with st.expander("🎯 Plans (Free forever, upgrades optional)", expanded=True):
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("**Free**\n\n• 1 analysis/day\n\n£0 / forever")
+        st.markdown("**Free** • 1 analysis / day • £0 / forever")
     with col2:
-        st.markdown("**Pro**\n\n• 3/day\n\n£9.99 / year")
+        st.markdown("**Pro** • 3/day • £9.99 / year")
         st.link_button("Upgrade to Pro", "https://buy.stripe.com/eVqeVdamUgkQ7Isgd19EI00")
     with col3:
-        st.markdown("**Team**\n\n• 15/day\n\n£49.99 / year")
+        st.markdown("**Team** • 15/day • £49.99 / year")
         st.link_button("Team Upgrade", "https://buy.stripe.com/cNi4gzfHe1pW5AkaSH9EI01")
     st.markdown("**Coach License** • 50/day • £99.99 / year")
     st.link_button("Coach Upgrade", "https://buy.stripe.com/4gM14n52A3y47Is8Kz9EI02")
