@@ -5,7 +5,7 @@ from PIL import Image
 st.set_page_config(page_title="GateSnap AI", layout="centered")
 
 # Load and display logo
-st.image("gatesnap_logo.png", width=200)
+
 
 st.title("Body Position Analysis for BMX Riders")
 
