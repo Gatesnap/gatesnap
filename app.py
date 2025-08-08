@@ -1,3 +1,19 @@
+# Branding CSS
+st.markdown("""
+<style>
+h1, h2, h3 { letter-spacing: 0.2px; }
+.stButton>button {
+  background:#8CF51C;
+  color:#000;
+  border:0;
+  font-weight:700;
+}
+.stButton>button:hover {
+  filter:brightness(0.9);
+}
+.block-container { padding-top: 1.2rem; }
+</style>
+""", unsafe_allow_html=True)
 
 import streamlit as st
 from PIL import Image
