@@ -1,5 +1,5 @@
 streamlit
 Pillow
-mediapipe
+mediapipe-silicon
 numpy
 opencv-python-headless
