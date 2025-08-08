@@ -65,12 +65,17 @@ st.markdown("""
 
 uploaded_file = st.file_uploader("🎬 Upload your video", type=["mp4", "mov"])
 
-if uploaded_file:
-    st.success("✅ Video uploaded successfully!")
-    st.markdown("### 🧠 GateSnap AI Review: Frame: Pre-Load Position")
-    st.markdown("✅ Torso: 42° (✔ Good)")
-    st.markdown("✅ Hip: 75° (✔ Good)")
-    st.markdown("⚠️ Knee: 125° (Too open)")
-    st.markdown("✅ Ankle: 85° (✔ Good)")
-    st.markdown("⚠️ Elbow: 170° (Too straight)")
-    st.info("🗣 Tip: Try bringing your knees forward slightly and bend your arms to improve your snap.")
+from pose_analysis import analyze_video
+
+# After upload
+frame, analysis = analyze_video(uploaded_file)
+if not analysis or "angles" not in analysis:
+    st.error(f"Error: {analysis}")
+else:
+    st.image(frame, caption="Analysis Frame", channels="BGR")
+    for k, v in analysis["angles"].items():
+        st.write(f"{k.title()}: {v:.1f}°")
+    if analysis["tips"]:
+        st.warning("Tip: " + " ".join(analysis["tips"]))
+    else:
+        st.success("Your form looks good!")
